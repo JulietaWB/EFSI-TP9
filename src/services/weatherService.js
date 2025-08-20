@@ -47,16 +47,14 @@ const getCurrentWeather = async (city, units) => {
 
 const getHourlyForecast = async (city, units) => {
   const data = await getWeatherData('forecast', city, units);
-  // Filter for next 24 hours in 3-hour intervals
-  const hourlyData = data.list.filter((item, index) => index < 8);
-  return hourlyData;
+  // Return the raw data with the list property for the controller to process
+  return data;
 };
 
 const getDailyForecast = async (city, units) => {
   const data = await getWeatherData('forecast', city, units);
-  // Filter for next 5 days (skipping current day if applicable) at noon (or similar consistent time)
-  const dailyData = data.list.filter(item => item.dt_txt.includes('12:00:00')).slice(0, 5);
-  return dailyData;
+  // Return the raw data with the list property for the controller to process
+  return data;
 };
 
 module.exports = {

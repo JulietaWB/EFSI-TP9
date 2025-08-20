@@ -1,10 +1,10 @@
-import { Cloud, Sun, CloudRain, Snow, CloudFog, CloudLightning, CloudDrizzle, SunSnow } from 'lucide-react';
+import { Cloud, Sun, CloudRain, CloudFog, CloudLightning, CloudDrizzle, SunSnow, ThermometerSnowflake } from 'lucide-react';
 
 export const getWeatherIcon = (weatherStatus) => {
   const status = weatherStatus ? weatherStatus.toLowerCase() : '';
 
   if (status.includes('nieve')) {
-    return Snow;
+    return SunSnow; // Changed from Snow to SunSnow
   } else if (status.includes('nubes') || status.includes('nublado')) {
     return Cloud;
   } else if (status.includes('sol' || status.includes('despejado'))) {

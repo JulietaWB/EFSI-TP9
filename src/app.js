@@ -2,8 +2,12 @@ const express = require('express');
 const config = require('./config/config');
 const errorHandler = require('./middleware/errorHandler');
 const weatherRoutes = require('./routes/weatherRoutes');
+const cors = require('cors');
 
 const app = express();
+
+// CORS middleware
+app.use(cors({ origin: 'http://localhost:5173' }));
 
 // Middleware for parsing JSON bodies
 app.use(express.json());
